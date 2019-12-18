@@ -49,5 +49,9 @@ Or:
 - By Default: `Lua.exe your_code_name.lua`
 - Then The Command Prompt Will Asks For Directory Where Are You Want To Place Generated Web Code(From Lua File)
 - Example: `D:\my_webpage.html`
+> NOTES: If You Have Compiler/IDE For Lua,Do Not Download Lua Standalone,Also Do Not Use Zenobrane Studio
+### 4. Running Generated HTML/CSS/JS/VBHTML/PHP/CSHTML:
+- Running Generated Code File Does Not Require Any Internet,As It Offline
+- Open File
 ## API Reference:
 API Reference Coming Soon!!!
