@@ -15,4 +15,4 @@ moonstone.body("end")
 moonstone.html("end")
 moonstone.endwebpage()
 ```
-Source: example_01.lua
+Source: [example_01.lua](https://github.com/Rabios/Moonstone/blob/master/example_01.lua)
