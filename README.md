@@ -30,7 +30,7 @@ Source: [example_01.lua](https://github.com/Rabios/Moonstone/blob/master/example
 ### 1. Requirements:
 - [Lua](https://lua.org)
 Or:
-- Compiler/IDE: Use [Comet](http://hamady.org/comet.html) As It Is Simple To Use,You Can Compile Using Default Lua If You Don't Want To Use Compiler/IDE
+- Compiler/IDE: Use [Comet](http://hamady.org/comet.html) As It Is Simple To Use,You Can Compile Using Default Lua If You Don't Want To Use Compiler Or IDE
 ### 2. Writing Your First Example:
 - Create A `.lua ` File And Name It As You Want
 - Require `moonstone`
@@ -39,7 +39,7 @@ Or:
 ### 3. Compiling:
 1. From IDE:
 - Just Run The Code,In The Input It Will Asks For Directory Where Are You Want To Place Generated Web Code(From Lua File)
-- Type It(Disk -> Folders -> Your_Webpage_Name) With One Of These Endings(.html/.css/.js/.php/.cshtml/.vbhtml/.coffee)
+- Type It(Disk -> Folders -> Your_Webpage_Name) With One Of These Endings(`.html`/`.css`/`.js`/`.php`/`.cshtml`/`.vbhtml`/`.coffee`)
 - Example: `D:\my_webpage.html`
 2. From Lua(No Compiler/IDE): 
 - Open Command Prompt From Lua Folder(Note That `moonstone.lua` And Your Code File Must Be Inside Lua Folder Beside Binary Files)
