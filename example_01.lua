@@ -3,6 +3,8 @@ local moonstone = require("moonstone")
 
 -- Start Moonstone 
 moonstone.begin() 
+
+-- Start Moonstone <html> Content
 moonstone.html.begin()
 
 -- <head> Content
@@ -16,6 +18,8 @@ moonstone.html.p("Hello World!!!")
 moonstone.html.watermark() -- Show Watermark(Not Necessary If You Want)
 moonstone.html.body.finish()
 
--- End Moonstone
+-- Ends Moonstone <html> Content,Adds </html>
 moonstone.html.finish()
+
+-- Ends Moonstone
 moonstone.finish()
