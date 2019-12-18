@@ -9,6 +9,7 @@ str = function(x)
 end,
 begin = function()
  page_directory = io.read()
+ print("Enter Directory Of Compiled Code File(Type Extension):")
  page_to_open = io.open(page_directory,'w')
 end,
 finish = function()
@@ -191,6 +192,18 @@ end,
 finish = function()
  page_to_open:write("</script>\n")
 end,
+comment = function(comment)
+ page_to_open:write("//"..comment.."\n")
+end,
+multiline_comment = 
+{
+begin = function()
+ page_to_open:write("/*\n")
+end,
+finish = function()
+ page_to_open:write("*/\n")
+end
+},
 console = 
 {
 log = function(msg)
