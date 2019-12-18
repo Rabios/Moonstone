@@ -29,7 +29,7 @@ moonstone.html.finish()
 -- Ends Moonstone
 moonstone.finish()
 ```
-Source: [example_01.lua](https://github.com/Rabios/Moonstone/blob/master/example_01.lua)
+Source: Modifed Version Of [example_01.lua](https://github.com/Rabios/Moonstone/blob/master/example_01.lua)
 ## Setting Up:
 ### 1. Requirements:
 - [Lua](https://lua.org)
