@@ -3,16 +3,26 @@ A Easy And Simple To Use Framework To Build Websites And Webpages With Lua,Curre
 ## How Much It Is Easy?
 See This:
 ```lua
-local moonstone = require("moonstone") 
+-- Require Moonstone
+local moonstone = require("moonstone")
+
+-- Start Moonstone 
 moonstone.begin() 
-moonstone.html("begin")
-moonstone.head("begin")
-moonstone.title("Webpage Made With Lua")
-moonstone.head("end")
-moonstone.body("begin")
-moonstone.p("Hello World!!!")
-moonstone.body("end")
-moonstone.html("end")
-moonstone.endwebpage()
+moonstone.html.begin()
+
+-- <head> Content
+moonstone.html.head.begin()
+moonstone.html.title("Webpage Made With Lua")
+moonstone.html.head.finish()
+
+-- <body> Content
+moonstone.html.body.begin()
+moonstone.html.p("Hello World!!!")
+moonstone.html.watermark() -- Show Watermark(Not Necessary If You Want)
+moonstone.html.body.finish()
+
+-- End Moonstone
+moonstone.html.finish()
+moonstone.finish()
 ```
 Source: [example_01.lua](https://github.com/Rabios/Moonstone/blob/master/example_01.lua)
