@@ -516,7 +516,19 @@ step = function(number,text)
 end,
 emoji = function(name)
  page_to_open:write(":"..name.."\n")
+end,
+code = 
+{
+start = function(language)
+page_to_open:write("```"..tostring(language).."\n")
+end,
+finish = function()
+page_to_open:write("```\n")
+end,
+snippet = function(code)
+page_to_open:write("`"..code.."`\n")
 end
+}
 },
 
 css = 
