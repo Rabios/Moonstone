@@ -38,6 +38,7 @@ Source: [example_01.lua](https://github.com/Rabios/Moonstone/blob/master/example
 - [Lua](https://lua.org)
 Or:
 - Compiler/IDE: Use [Comet](http://hamady.org/comet.html) As It Is Simple To Use,You Can Compile Using Default Lua If You Don't Want To Use Compiler Or IDE
+- A Basic Knowledge Of Some Markdown,CSS,Javascript,HTML(Not Necessary But Needy When It Comes To Build A Full Website)
 ### 2. Writing Your First Example:
 - Create A `.lua ` File And Name It As You Want
 - Require `moonstone`
