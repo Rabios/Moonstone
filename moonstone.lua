@@ -1,6 +1,6 @@
 -- Moonstone Web Development Framework,A Framework To Develop Websites And Webpages Using Lua Programming Language
 -- Copyright (c)2019-Present Rabia Alhaffar,All Rights Reserved!!!
--- You Can Also Use HTML/CSS/Javascript/PHP/VBScript/JScript/C#/Visual Basic .NET/ASP Code Within The Main Lua Code,But With Some Differences!!!
+-- You Can Also Use C/C++/HTML/CSS/Javascript/PHP/VBScript/JScript/C#/Visual Basic .NET/ASP Code Within The Main Lua Code,But With Some Differences!!!
 page_to_open = ""
 notonsameline = false
 local moonstone = 
@@ -493,6 +493,20 @@ h2 = function(text)
 end,
 h3 = function(text)
  page_to_open:write("### "..text.."\n")
+end,
+h4 = function(text)
+ page_to_open:write("#### "..text.."\n")
+end,
+h5 = function(text)
+ page_to_open:write("##### "..text.."\n")
+end,
+h6 = function(text)
+ page_to_open:write("###### "..text.."\n")
+end,
+underline = function()
+for a = 0,3,1 do
+ page_to_open:write("---\n")	
+end	
 end,
 a = function(text,href)
  page_to_open:write("["..text.."]("..href..")\n")
