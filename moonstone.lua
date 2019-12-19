@@ -345,6 +345,48 @@ end
 },
 mark = function(text)
  page_to_open:write("<mark>"..text.."</mark>\n")
+end,
+main =
+{
+start = function()
+ page_to_open:write("<main>\n")
+end,
+finish = function()
+ page_to_open:write("</main>\n")
+end
+},
+section =
+{
+start = function()
+ page_to_open:write("<section>\n")
+end,
+finish = function()
+ page_to_open:write("</section>\n")
+end
+},
+table =
+{
+start = function()
+ page_to_open:write("<table>\n")
+end,
+finish = function()
+ page_to_open:write("</table>\n")
+end
+},
+tr = 
+{
+start = function()
+ page_to_open:write("<tr>\n")
+end,
+finish = function()
+ page_to_open:write("</tr>\n")
+end
+},
+th = function(text)
+ page_to_open:write("<th>"..text.."</th>\n")
+end,
+td = function(text)
+ page_to_open:write("<td>"..text.."</td>\n")
 end
 },
 
