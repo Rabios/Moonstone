@@ -8,8 +8,8 @@ str = function(x)
  return "\""..x.."\""
 end,
 start = function()
- page_directory = io.read()
  print("Enter Directory Of Compiled Code File(Type Extension):")
+ page_directory = io.read()
  page_to_open = io.open(page_directory,'w')
 end,
 finish = function()
@@ -161,8 +161,17 @@ end,
 noscript = function(text)
  page_to_open:write("<noscript>"..text.."</noscript>\n")
 end,
-br = function()
- page_to_open:write("<br>\n")
+br = function(endline)
+ page_to_open:write("<br>")
+ if endline then
+ page_to_open:write("\n")
+ end
+end,
+wbr = function(endline)
+ page_to_open:write("<wbr>")
+ if endline then
+ page_to_open:write("\n")
+ end
 end,
 a = function(href,text)
  page_to_open:write("<a href=".."\""..href.."\""..">"..text.."</a>\n")
@@ -181,6 +190,161 @@ progress = function(value,max)
 end,
 li = function(text)
  page_to_open:write("<li>"..text.."</li>\n")
+end,
+article =
+{
+start = function()
+ page_to_open:write("<article>\n")
+end,
+finish = function()
+ page_to_open:write("</article>\n")
+end
+},
+bdi = function(text)
+ page_to_open:write("<bdi>"..text.."</bdi>\n")
+end,
+dl = 
+{
+start = function()
+ page_to_open:write("<dl>\n")
+end,
+finish = function()
+ page_to_open:write("</dl>\n")
+end
+},
+dt = function(text)
+ page_to_open:write("<dt>"..text.."</dt>\n")
+end,
+dd = function(text)
+ page_to_open:write("<dd>"..text.."</dd>\n")
+end,
+embed = function(src)
+ page_to_open:write("<embed src=".."\""..src.."\""..">\n")
+end,
+data = function(text,value)
+ page_to_open:write("<data value=".."\""..value.."\""..">"..text.."</data>\n")
+end,
+button = function(id,text)
+ page_to_open:write("<button id=".."\""..id.."\""..">"..text.."</button>\n")
+end,
+ruby =
+{
+start = function()
+ page_to_open:write("<ruby>\n")
+end,
+finish = function()
+ page_to_open:write("</ruby>\n")
+end
+},
+rp = function(text)
+ page_to_open:write("<rp>"..text.."</rp>\n")
+end,
+rt = function(text)
+ page_to_open:write("<rt>"..text.."</rt>\n")
+end,
+sup = function(text)
+ page_to_open:write("<sup>"..text.."<sup>\n")
+end,
+cite = function(text)
+ page_to_open:write("<cite>"..text.."</cite>\n")
+end,
+hr = function()
+ page_to_open:write("<hr>\n")
+end,
+details = 
+{
+start = function(summary)
+ page_to_open:write("<details>\n")
+ page_to_open:write("<summary>"..summary.."</summary>\n")
+end,
+finish = function()
+ page_to_open:write("</details>\n")
+end,
+},
+summary = function(text)
+ page_to_open:write("<summary>"..text.."</summary>\n")
+end,
+textarea = 
+{
+start = function(text)
+ page_to_open:write("<textarea>\n")
+ page_to_open:write(text.."\n")
+end,
+finish = function()
+ page_to_open:write("</textarea>\n")
+end
+},
+div =
+{
+start = function(id)
+ page_to_open:write("<div id=".."\""..id.."\""..">\n")
+end,
+finish = function()
+ page_to_open:write("</div>\n")
+end
+},
+nav =
+{
+start = function()
+ page_to_open:write("<nav>\n")
+end,
+finish = function()
+ page_to_open:write("</nav>\n")
+end
+},
+select =
+{
+start = function()
+ page_to_open:write("<select>\n")
+end,
+finish = function()
+ page_to_open:write("</select>\n")
+end
+},
+option = function(text)
+ page_to_open:write("<option>"..text.."</option>\n")
+end,
+input = function(t)
+ page_to_open:write("<input type=".."\""..t.."\""..">\n")
+end,
+audio = 
+{
+start = function()
+ page_to_open:write("<audio controls>\n")
+end,
+finish = function()
+ page_to_open:write("</audio>\n")
+end
+},
+video = 
+{
+start = function(height,width)
+ page_to_open:write("<video height=".."\""..height.."\"".." width=".."\""..width.."\"".." controls>\n")
+end,
+finish = function()
+ page_to_open:write("</video>\n")
+end
+},
+footer =
+{
+start = function()
+ page_to_open:write("<footer>\n")
+end,
+finish = function()
+ page_to_open:write("</footer>\n")
+end
+},
+figure = 
+{
+start = function()
+ page_to_open:write("<figure>\n")
+end,
+finish = function()
+ page_to_open:write("</figure>\n")
+end
+},
+mark = function(text)
+ page_to_open:write("<mark>"..text.."</mark>\n")
 end
 },
 
@@ -308,7 +472,9 @@ finish = function()
  page_to_open:write("%>\n")
 end
 },
-
+endline = function()
+ page_to_open:write("\n")
+end,
 script = function(code)
  page_to_open:write(code.."\n")
 end,
@@ -321,6 +487,9 @@ if t == "style" then
 end
 if t == "iframe" then
  page_to_open:write("<iframe src=".."\""..src.."\"".."></iframe>\n")	
+end
+if t == "source" then
+ page_to_open:write("<source src=".."\""..src.."\""..">\n")
 end
 end
 }
