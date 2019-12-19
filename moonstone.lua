@@ -7,7 +7,7 @@ local moonstone =
 str = function(x)
  return "\""..x.."\""
 end,
-begin = function()
+start = function()
  page_directory = io.read()
  print("Enter Directory Of Compiled Code File(Type Extension):")
  page_to_open = io.open(page_directory,'w')
@@ -18,7 +18,7 @@ end,
 
 html =
 {
-begin = function()
+start = function()
  page_to_open:write("<!DOCTYPE html>\n")
  page_to_open:write("<html>\n")
 end,
@@ -28,7 +28,7 @@ end,
 
 head =
 {
-begin = function()
+start = function()
  page_to_open:write("<head>\n")
 end,
 finish = function()
@@ -38,7 +38,7 @@ end
 
 center =
 {
- begin = function()
+ start = function()
  page_to_open:write("<center>\n")
  end,
  finish = function()
@@ -48,7 +48,7 @@ center =
 
 code =
 {
-begin = function()
+start = function()
  page_to_open:write("<code>\n")
 end,
 finish = function()
@@ -58,7 +58,7 @@ end
 
 body =
 {
-begin = function()
+start = function()
  page_to_open:write("<body>\n")
 end,
 finish = function()
@@ -68,7 +68,7 @@ end
 
 ol =
 {
-begin = function()
+start = function()
  page_to_open:write("<ol>\n")
 end,
 finish = function()
@@ -78,7 +78,7 @@ end
 
 ul =
 {
-begin = function()
+start = function()
  page_to_open:write("<ul>\n")
 end,
 finish = function()
@@ -186,7 +186,7 @@ end
 
 js = 
 {
-begin = function()
+start = function()
  page_to_open:write("<script>\n")
 end,
 finish = function()
@@ -197,7 +197,7 @@ comment = function(comment)
 end,
 multiline_comment = 
 {
-begin = function()
+start = function()
  page_to_open:write("/*\n")
 end,
 finish = function()
@@ -236,7 +236,7 @@ end
 
 css = 
 {
-begin = function()
+start = function()
   page_to_open:write("<style>\n")
 end,
 finish = function()
@@ -258,7 +258,7 @@ end
 
 php =
 {
-begin = function()
+start = function()
  page_to_open:write("<?php\n")
 end,
 finish = function()
@@ -271,7 +271,7 @@ end
 
 csharp =
 {
-begin = function()
+start = function()
  page_to_open:write("@{\n")
 end,
 finish = function()
@@ -281,7 +281,7 @@ end
 
 vb =
 {
-begin = function()
+start = function()
  page_to_open:write("@Code\n")
 end,
 finish = function()
@@ -291,7 +291,7 @@ end
 
 vbscript =
 {
-begin = function()
+start = function()
  page_to_open:write("<%@ Language=".."\"".."VBScript".."\"".."\n")
 end,
 finish = function()
@@ -301,7 +301,7 @@ end
 
 jscript =
 {
-begin = function()
+start = function()
  page_to_open:write("<%@ Language=".."\"".."JScript".."\"".."\n")
 end,
 finish = function()
