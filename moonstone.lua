@@ -1,7 +1,8 @@
 -- Moonstone Web Development Framework,A Framework To Develop Websites And Webpages Using Lua Programming Language
--- Copyright 2019-Present(c) Rabia Alhaffar,All Rights Reserved!!!
+-- Copyright (c)2019-Present Rabia Alhaffar,All Rights Reserved!!!
 -- You Can Also Use HTML/CSS/Javascript/PHP/VBScript/JScript/C#/Visual Basic .NET/ASP Code Within The Main Lua Code,But With Some Differences!!!
 page_to_open = ""
+notonsameline = false
 local moonstone = 
 {
 str = function(x)
@@ -90,91 +91,110 @@ title = function(t)
   page_to_open:write("<title>"..t.."</title>\n")
 end,
 p = function(text)
-  page_to_open:write("<p>"..text.."</p>\n")
+  page_to_open:write("<p>"..text.."</p>")
+  checkline()
 end,
 b = function(text)
- page_to_open:write("<b>"..text.."</b>\n")
+ page_to_open:write("<b>"..text.."</b>")
+ checkline()
 end,
 i = function(text)
- page_to_open:write("<i>"..text.."</i>\n")
+ page_to_open:write("<i>"..text.."</i>")
+ checkline()
 end,
 s = function(text)
- page_to_open:write("<s>"..text.."</s>\n")
+ page_to_open:write("<s>"..text.."</s>")
+ checkline()
 end,
 strong = function(text)
- page_to_open:write("<strong>"..text.."</strong>\n")
+ page_to_open:write("<strong>"..text.."</strong>")
+ checkline()
 end,
 em = function(text)
- page_to_open:write("<em>"..text.."</em>\n")
+ page_to_open:write("<em>"..text.."</em>")
+ checkline()
 end,
 h1 = function(text)
- page_to_open:write("<h1>"..text.."</h1>\n")
+ page_to_open:write("<h1>"..text.."</h1>")
+ checkline()
 end,
 h2 = function(text)
- page_to_open:write("<h2>"..text.."</h2>\n")
+ page_to_open:write("<h2>"..text.."</h2>")
+ checkline()
 end,
 h3 = function(text)
- page_to_open:write("<h3>"..text.."</h3>\n")
+ page_to_open:write("<h3>"..text.."</h3>")
+ checkline()
 end,
 h4 = function(text)
- page_to_open:write("<h4>"..text.."</h4>\n")
+ page_to_open:write("<h4>"..text.."</h4>")
+ checkline()
 end,
 h5 = function(text)
- page_to_open:write("<h5>"..text.."</h5>\n")
+ page_to_open:write("<h5>"..text.."</h5>")
+ checkline()
 end,
 h6 = function(text)
- page_to_open:write("<h6>"..text.."</h6>\n")
+ page_to_open:write("<h6>"..text.."</h6>")
+ checkline()
 end,
 var = function(text)
- page_to_open:write("<var>"..text.."</var>\n")
+ page_to_open:write("<var>"..text.."</var>")
+ checkline()
 end,
 kbd = function(text)
- page_to_open:write("<kbd>"..text.."</kbd>\n")
+ page_to_open:write("<kbd>"..text.."</kbd>")
+ checkline()
 end,
 samp = function(text)
- page_to_open:write("<samp>"..text.."</samp>\n")
+ page_to_open:write("<samp>"..text.."</samp>")
+ checkline()
 end,
 q = function(text)
- page_to_open:write("<q>"..text.."</q>\n")
+ page_to_open:write("<q>"..text.."</q>")
+ checkline()
 end,
 ins = function(text)
- page_to_open:write("<ins>"..text.."</ins>\n")
+ page_to_open:write("<ins>"..text.."</ins>")
+ checkline()
 end,
 del = function(text)
- page_to_open:write("<del>"..text.."</del>\n")
+ page_to_open:write("<del>"..text.."</del>")
+ checkline()
 end,
 small = function(text)
- page_to_open:write("<small>"..text.."</small>\n")
+ page_to_open:write("<small>"..text.."</small>")
+ checkline()
 end,
 u = function(text)
- page_to_open:write("<u>"..text.."</u>\n")
+ page_to_open:write("<u>"..text.."</u>")
+ checkline()
 end,
 comment = function(text)
  page_to_open:write("<!-- "..text.." -->\n")
 end,
 pre = function(text)
- page_to_open:write("<pre>"..text.."</pre>\n")
+ page_to_open:write("<pre>"..text.."</pre>")
+ checkline()
 end,
 watermark = function()
  page_to_open:write("<b>Generated And Powered By <a href=".."\"".."https://lua.org".."\""..">".._VERSION.."</a>,And <a href=".."\"".."https://github.com/Rabios/Moonstone".."\""..">Moonstone</a> Framework</b>\n")
 end,
 noscript = function(text)
- page_to_open:write("<noscript>"..text.."</noscript>\n")
+ page_to_open:write("<noscript>"..text.."</noscript>")
+ checkline()
 end,
-br = function(endline)
+br = function()
  page_to_open:write("<br>")
- if endline then
- page_to_open:write("\n")
- end
+ checkline()
 end,
-wbr = function(endline)
+wbr = function()
  page_to_open:write("<wbr>")
- if endline then
- page_to_open:write("\n")
- end
+ checkline()
 end,
 a = function(href,text)
- page_to_open:write("<a href=".."\""..href.."\""..">"..text.."</a>\n")
+ page_to_open:write("<a href=".."\""..href.."\""..">"..text.."</a>")
+ checkline()
 end,
 attr = function(name,value)
  page_to_open:write(name.."=".."\""..value.."\"".."\n")
@@ -183,13 +203,16 @@ img = function(src)
  page_to_open:write("<img src=".."\""..src.."\""..">\n")
 end,
 canvas = function(id,height,width)
- page_to_open:write("<canvas id=".."\""..id.."\"".." height=".."\""..height.."\"".." width=".."\""..width.."\"".."></canvas>\n")
+ page_to_open:write("<canvas id=".."\""..id.."\"".." height=".."\""..height.."\"".." width=".."\""..width.."\"".."></canvas>")
+ checkline()
 end,
 progress = function(value,max)
  page_to_open:write("<progress value=".."\""..value.."\"".." max=".."\""..max.."\"".."></progress>\n")
+ checkline()
 end,
 li = function(text)
- page_to_open:write("<li>"..text.."</li>\n")
+ page_to_open:write("<li>"..text.."</li>")
+ checkline()
 end,
 article =
 {
@@ -201,31 +224,39 @@ finish = function()
 end
 },
 bdi = function(text)
- page_to_open:write("<bdi>"..text.."</bdi>\n")
+ page_to_open:write("<bdi>"..text.."</bdi>")
+ checkline()
 end,
 dl = 
 {
 start = function()
  page_to_open:write("<dl>\n")
+ checkline()
 end,
 finish = function()
  page_to_open:write("</dl>\n")
+ checkline()
 end
 },
 dt = function(text)
- page_to_open:write("<dt>"..text.."</dt>\n")
+ page_to_open:write("<dt>"..text.."</dt>")
+ checkline()
 end,
 dd = function(text)
- page_to_open:write("<dd>"..text.."</dd>\n")
+ page_to_open:write("<dd>"..text.."</dd>")
+ checkline()
 end,
 embed = function(src)
- page_to_open:write("<embed src=".."\""..src.."\""..">\n")
+ page_to_open:write("<embed src=".."\""..src.."\""..">")
+ checkline()
 end,
 data = function(text,value)
- page_to_open:write("<data value=".."\""..value.."\""..">"..text.."</data>\n")
+ page_to_open:write("<data value=".."\""..value.."\""..">"..text.."</data>")
+ checkline()
 end,
 button = function(id,text)
- page_to_open:write("<button id=".."\""..id.."\""..">"..text.."</button>\n")
+ page_to_open:write("<button id=".."\""..id.."\""..">"..text.."</button>")
+ checkline()
 end,
 ruby =
 {
@@ -237,19 +268,24 @@ finish = function()
 end
 },
 rp = function(text)
- page_to_open:write("<rp>"..text.."</rp>\n")
+ page_to_open:write("<rp>"..text.."</rp>")
+ checkline()
 end,
 rt = function(text)
- page_to_open:write("<rt>"..text.."</rt>\n")
+ page_to_open:write("<rt>"..text.."</rt>")
+ checkline()
 end,
 sup = function(text)
- page_to_open:write("<sup>"..text.."<sup>\n")
+ page_to_open:write("<sup>"..text.."<sup>")
+ checkline()
 end,
 cite = function(text)
- page_to_open:write("<cite>"..text.."</cite>\n")
+ page_to_open:write("<cite>"..text.."</cite>")
+ checkline()
 end,
 hr = function()
- page_to_open:write("<hr>\n")
+ page_to_open:write("<hr>")
+ checkline()
 end,
 details = 
 {
@@ -262,7 +298,8 @@ finish = function()
 end,
 },
 summary = function(text)
- page_to_open:write("<summary>"..text.."</summary>\n")
+ page_to_open:write("<summary>"..text.."</summary>")
+ checkline()
 end,
 textarea = 
 {
@@ -302,10 +339,12 @@ finish = function()
 end
 },
 option = function(text)
- page_to_open:write("<option>"..text.."</option>\n")
+ page_to_open:write("<option>"..text.."</option>")
+ checkline()
 end,
 input = function(t)
- page_to_open:write("<input type=".."\""..t.."\""..">\n")
+ page_to_open:write("<input type=".."\""..t.."\""..">")
+ checkline()
 end,
 audio = 
 {
@@ -344,7 +383,8 @@ finish = function()
 end
 },
 mark = function(text)
- page_to_open:write("<mark>"..text.."</mark>\n")
+ page_to_open:write("<mark>"..text.."</mark>")
+ checkline()
 end,
 main =
 {
@@ -383,10 +423,12 @@ finish = function()
 end
 },
 th = function(text)
- page_to_open:write("<th>"..text.."</th>\n")
+ page_to_open:write("<th>"..text.."</th>")
+ checkline()
 end,
 td = function(text)
- page_to_open:write("<td>"..text.."</td>\n")
+ page_to_open:write("<td>"..text.."</td>")
+ checkline()
 end
 },
 
@@ -438,6 +480,43 @@ writeln = function(msg)
 end
 }
 
+},
+
+
+md =
+{
+h1 = function(text)
+ page_to_open:write("# "..text.."\n")
+end,
+h2 = function(text)
+ page_to_open:write("## "..text.."\n")
+end,
+h3 = function(text)
+ page_to_open:write("### "..text.."\n")
+end,
+a = function(text,href)
+ page_to_open:write("["..text.."]("..href..")\n")
+end,
+checkbox = function(text,checked)
+ if checked then
+ page_to_open:write("-[x] "..text.."\n") 
+ end
+ if not checked then
+ page_to_open:write("-[ ] "..text.."\n")	 
+ end
+end,
+point = function(text)
+ page_to_open:write("- "..text.."\n")
+end,
+note = function(text)
+ page_to_open:write("> "..text.."\n")
+end,
+step = function(number,text)
+ page_to_open:write(tostring(number)..". "..text.."\n")
+end,
+emoji = function(name)
+ page_to_open:write(":"..name.."\n")
+end
 },
 
 css = 
@@ -520,19 +599,135 @@ end,
 script = function(code)
  page_to_open:write(code.."\n")
 end,
+writeline = function(mode)
+ notonsameline = mode
+end,
 src = function(t,src)
 if t == "script" then
- page_to_open:write("<script src=".."\""..src.."\"".."></script>\n")	
+ page_to_open:write("<script src=".."\""..src.."\"".."></script>")	
+ checkline()
 end
 if t == "style" then
- page_to_open:write("<style src=".."\""..src.."\"".."></style>\n")	
+ page_to_open:write("<style src=".."\""..src.."\"".."></style>")	
+ checkline()
 end
 if t == "iframe" then
- page_to_open:write("<iframe src=".."\""..src.."\"".."></iframe>\n")	
+ page_to_open:write("<iframe src=".."\""..src.."\"".."></iframe>")	
+ checkline()
 end
 if t == "source" then
  page_to_open:write("<source src=".."\""..src.."\""..">\n")
 end
-end
+end,
 }
+function p(text)
+return "<p>"..text.."</p>"
+end
+function b(text)
+return "<b>"..text.."</b>"
+end
+function i(text)
+return "<i>"..text.."</i>"
+end
+function u(text)
+return "<u>"..text.."</u>"
+end
+function small(text)
+return "<small>"..text.."</small>"	
+end
+function samp(text)
+return "<samp>"..text.."</samp>"	
+end
+function kbd(text)
+return "<kbd>"..text.."</kbd>"	
+end
+function ins(text) 
+return "<ins>"..text.."</ins>"
+end
+function q(text)
+return "<q>"..text.."</q>"	
+end
+function del(text)
+return "<del>"..text.."</del>"	
+end
+function mark(text)
+return "<mark>"..text.."</mark>"
+end
+function var(text)
+return "<var>"..text.."</var>"	
+end
+function pre(text)
+return "<pre>"..text.."</pre>"	
+end
+function strong(text)
+return "<strong>"..text.."</strong>"	
+end
+function em(text)
+return "<em>"..text.."</em>" 	
+end
+function h1(text)
+return "<h1>"..text.."</h1>"	
+end
+function h2(text)
+return "<h2>"..text.."</h2>"	
+end
+function h3(text)
+return "<h3>"..text.."</h3>"	
+end
+function h4(text)
+return "<h4>"..text.."</h4>"	
+end
+function h5(text)
+return "<h5>"..text.."</h5>"	
+end
+function h6(text)
+return "<h6>"..text.."</h6>"	
+end
+function rp(text)
+return "<rp>"..text.."</rp>"	
+end
+function rt(text)
+return "<rt>"..text.."</rt>"	
+end
+function sup(text)
+return "<sup>"..text.."</sup>"	
+end
+function cite(text)
+return "<cite>"..text.."</cite>"	
+end
+function option(text)
+return "<option>"..text.."</option>"	
+end
+function summary(text)
+return "<summary>"..text.."</summary>"	
+end
+function dd(text)
+return "<dd>"..text.."</dd>"	
+end
+function dt(text)
+return "<dt>"..text.."</dt>"	
+end
+function bdi(text)
+return "<bdi>"..text.."</bdi>"	
+end
+function li(text)
+return "<li>"..text.."</li>"	
+end
+function th(text)
+return "<th>"..text.."</th>"	
+end
+function td(text)
+return "<td>"..text.."</td>"	
+end
+function noscript(text)
+return "<noscript>"..text.."</noscript>"	
+end
+function a(href,text)
+return "<a href=".."\""..href.."\""..">"..text.."</a>"	
+end
+function checkline()
+ if notonsameline then
+ page_to_open:write("\n")
+ end
+end
 return moonstone

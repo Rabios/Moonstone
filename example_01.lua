@@ -3,7 +3,7 @@ local moonstone = require("moonstone")
 
 -- Start Moonstone 
 moonstone.start() 
-
+moonstone.writeline(true)
 -- Start Moonstone <html> Content
 moonstone.html.start()
 
@@ -14,7 +14,7 @@ moonstone.html.head.finish()
 
 -- <body> Content
 moonstone.html.body.start()
-moonstone.html.p("Hello World!!!")
+moonstone.html.p("Hello World")
 moonstone.html.watermark() -- Show Watermark(Not Necessary If You Want)
 moonstone.html.body.finish()
 
