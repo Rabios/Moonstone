@@ -3,7 +3,7 @@ local moonstone = require("moonstone")
 
 -- Start Moonstone 
 moonstone.start() 
-moonstone.writeline(true)
+
 -- Start Moonstone <html> Content
 moonstone.html.start()
 

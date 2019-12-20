@@ -2,7 +2,7 @@
 -- Copyright (c)2019-Present Rabia Alhaffar,All Rights Reserved!!!
 -- You Can Also Use C/C++/HTML/CSS/Javascript/PHP/VBScript/JScript/C#/Lua/Visual Basic .NET/ASP Code Within The Main Lua Code,But With Some Differences!!!
 page_to_open = ""
-notonsameline = false
+notonsameline = true
 local moonstone = 
 {
 str = function(x)
