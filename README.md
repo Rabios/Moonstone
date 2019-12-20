@@ -9,9 +9,6 @@ local moonstone = require("moonstone")
 -- Start Moonstone 
 moonstone.start() 
 
--- To Make A New Line Each Time Moonstone Writes An HTML Code To The Page
-moonstone.writeline(true)
-
 -- Start Moonstone <html> Content
 moonstone.html.start()
 
