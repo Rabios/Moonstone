@@ -1,6 +1,6 @@
 -- Moonstone Web Development Framework,A Framework To Develop Websites And Webpages Using Lua Programming Language
 -- Copyright (c)2019-Present Rabia Alhaffar,All Rights Reserved!!!
--- You Can Also Use C/C++/HTML/CSS/Javascript/PHP/VBScript/JScript/C#/Visual Basic .NET/ASP Code Within The Main Lua Code,But With Some Differences!!!
+-- You Can Also Use C/C++/HTML/CSS/Javascript/PHP/VBScript/JScript/C#/Lua/Visual Basic .NET/ASP Code Within The Main Lua Code,But With Some Differences!!!
 page_to_open = ""
 notonsameline = false
 local moonstone = 
@@ -200,7 +200,8 @@ attr = function(name,value)
  page_to_open:write(name.."=".."\""..value.."\"".."\n")
 end,
 img = function(src)
- page_to_open:write("<img src=".."\""..src.."\""..">\n")
+ page_to_open:write("<img src=".."\""..src.."\""..">")
+ checkline()
 end,
 canvas = function(id,height,width)
  page_to_open:write("<canvas id=".."\""..id.."\"".." height=".."\""..height.."\"".." width=".."\""..width.."\"".."></canvas>")
@@ -750,6 +751,18 @@ return "<noscript>"..text.."</noscript>"
 end
 function a(href,text)
 return "<a href=".."\""..href.."\""..">"..text.."</a>"	
+end
+function br()
+return "<br>"	
+end
+function wbr()
+return "<wbr>"	
+end
+function img(src)
+return "<img src=".."\""..src.."\""..">"
+end
+function attr(name,value)
+return tostring(name).."=".."\""..value.."\"".."\n"	
 end
 function checkline()
  if notonsameline then
