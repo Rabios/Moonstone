@@ -769,4 +769,7 @@ function checkline()
  page_to_open:write("\n")
  end
 end
+function str(x)
+return "\""..x.."\""	
+end
 return moonstone
