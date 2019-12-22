@@ -29,6 +29,19 @@ moonstone.html.finish()
 -- Ends Moonstone
 moonstone.finish()
 ```
+Compiled Output(From Lua To HTML):
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Webpage Made With Lua</title>
+</head>
+<body>
+<p>Hello World</p>
+<b>Generated And Powered By <a href="https://lua.org">Lua 5.1</a>,And <a href="https://github.com/Rabios/Moonstone">Moonstone</a> Framework</b>
+</body>
+</html>
+```
 Source: [example_01.lua](https://github.com/Rabios/Moonstone/blob/master/example_01.lua)
 ## Setting Up:
 ### 1. Requirements:
