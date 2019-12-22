@@ -514,10 +514,10 @@ a = function(text,href)
 end,
 checkbox = function(text,checked)
  if checked then
- page_to_open:write("-[x] "..text.."\n") 
+ page_to_open:write("- [x] "..text.."\n") 
  end
  if not checked then
- page_to_open:write("-[ ] "..text.."\n")	 
+ page_to_open:write("- [ ] "..text.."\n")	 
  end
 end,
 point = function(text)
