@@ -505,9 +505,10 @@ h6 = function(text)
  page_to_open:write("###### "..text.."\n")
 end,
 underline = function()
-for a = 0,3,1 do
- page_to_open:write("---\n")	
-end	
+ page_to_open:write("------------------------------------------\n")	
+end,
+p = function(text)
+ page_to_open:write(text.."\n")
 end,
 a = function(text,href)
  page_to_open:write("["..text.."]("..href..")\n")
