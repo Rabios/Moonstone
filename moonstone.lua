@@ -535,6 +535,9 @@ emoji = function(name)
 end,
 watermark = function()
  page_to_open:write("> Generated And Powered By [".._VERSION.."](https://lua.org),And [Moonstone](https://github.com/Rabios/Moonstone) Framework\n")
+end,
+comment = function(comment)
+ page_to_open:write("\n[comment]: # ("..tostring(comment)..")\n")
 end
 ,
 code = 
