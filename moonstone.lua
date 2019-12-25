@@ -511,7 +511,7 @@ p = function(text)
  page_to_open:write(text.."\n")
 end,
 a = function(text,href)
- page_to_open:write("["..text.."]("..href..")\n")
+ page_to_open:write("["..text.."]("..tostring(href)..")\n")
 end,
 checkbox = function(text,checked)
  if checked then
@@ -533,6 +533,10 @@ end,
 emoji = function(name)
  page_to_open:write(":"..name.."\n")
 end,
+watermark = function()
+ page_to_open:write("> Generated And Powered By [".._VERSION.."](https://lua.org),And [Moonstone](https://github.com/Rabios/Moonstone) Framework\n")
+end
+,
 code = 
 {
 start = function(language)
@@ -774,3 +778,4 @@ function str(x)
 return "\""..x.."\""	
 end
 return moonstone
+return (function str)
