@@ -778,4 +778,3 @@ function str(x)
 return "\""..x.."\""	
 end
 return moonstone
-return (function str)
