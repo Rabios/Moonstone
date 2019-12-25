@@ -1,6 +1,6 @@
 # Moonstone
 <img src="https://github.com/Rabios/Moonstone/blob/master/Moonstone.png"><br>
-A Easy And Simple To Use Framework To Build Websites And Webpages With Lua,Currently In Development
+An Open-Source,Easy And Simple To Use Web Framework To Build Websites And Webpages With Lua,Currently In Development
 ## How Much It Is Easy?
 See This:
 ```lua
