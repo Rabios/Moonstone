@@ -538,6 +538,15 @@ watermark = function()
 end,
 comment = function(comment)
  page_to_open:write("\n[comment]: # ("..tostring(comment)..")\n")
+end,
+b =  function(text)
+ page_to_open:write("**"..text.."**\n")
+end,
+i = function(text)
+ page_to_open:write("*"..text.."*\n")
+end,
+del = function(text)
+ page_to_open:write("~~"..text.."~~\n")
 end
 ,
 code = 
@@ -776,6 +785,15 @@ function checkline()
  if notonsameline then
  page_to_open:write("\n")
  end
+end
+function mdbold(text)
+ return "**"..text.."**" 
+end
+function mditalic()
+ return "*"..text.."*"
+end
+function mddel()
+ return "~~"..text.."~~"
 end
 function str(x)
 return "\""..x.."\""	
