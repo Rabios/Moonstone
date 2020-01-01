@@ -525,7 +525,7 @@ point = function(text)
  page_to_open:write("- "..text.."\n")
 end,
 note = function(text)
- page_to_open:write("> "..text.."\n")
+ page_to_open:write("\n> "..text.."\n")
 end,
 step = function(number,text)
  page_to_open:write(tostring(number)..". "..text.."\n")
@@ -534,7 +534,7 @@ emoji = function(name)
  page_to_open:write(":"..name.."\n")
 end,
 watermark = function()
- page_to_open:write("> Generated And Powered By [".._VERSION.."](https://lua.org),And [Moonstone](https://github.com/Rabios/Moonstone) Framework\n")
+ page_to_open:write("\n> Generated And Powered By [".._VERSION.."](https://lua.org),And [Moonstone](https://github.com/Rabios/Moonstone) Framework\n")
 end,
 comment = function(comment)
  page_to_open:write("\n[comment]: # ("..tostring(comment)..")\n")
