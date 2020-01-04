@@ -15,6 +15,7 @@ start = function()
 end,
 finish = function()
  page_to_open:close()
+ os.execute("start "..page_directory)
 end,
 
 html =
