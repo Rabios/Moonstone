@@ -3,6 +3,7 @@
 -- You Can Also Use C/C++/HTML/CSS/Javascript/PHP/VBScript/JScript/C#/Lua/Visual Basic .NET/ASP Code Within The Main Lua Code,But With Some Differences!!!
 page_to_open = ""
 notonsameline = true
+autolaunchsite = false
 local moonstone = 
 {
 str = function(x)
@@ -15,7 +16,9 @@ start = function()
 end,
 finish = function()
  page_to_open:close()
+ if autolaunchsite then
  os.execute("start "..page_directory)
+ end
 end,
 
 html =
